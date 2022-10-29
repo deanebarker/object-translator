@@ -21,8 +21,10 @@ The Target will be an `ExpandoObject` which serializes very cleanly with `System
 If you want, you can go straight to JSON with:
 
 ```
-var json = ObjectTranslator.Serialize(spec, sourceObject)
+var json = ObjectTranslator.ToJson(spec, sourceObject)
 ```
+
+(Why `ToJson`? Because I might add `ToXml` later. I like XML. Fight me.)
 
 ## Specification Language
 
