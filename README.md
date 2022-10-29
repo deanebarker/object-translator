@@ -1,12 +1,16 @@
 # Object Translator
 
-This is a library for converting one C# object into another object using a simple domain-specific language. It's is designed to be used prior to serlization, so that a new objects can be created that will result in desired serialization.
+This is a library for converting one C# object into another object using a simple domain-specific language (DSL). It's is designed to be used prior to serlization, so that a new objects can be created that will result in desired serialization.
 
-Assume a **Source** object and a **Target** object. The library will ready in the specification, apply it to the Source, and output the Target. It's then assumed that the target will be serialized by some other process.
+* **Source:** The object you have
+* **Specification:** A set of instructions that explains how to convert Source into Target
+* **Target:** The object you want (most likely because you want serialize it in a specific format)
+
+So the specification is simple DSL that tells C# how to turn Source into Target. Most of the documentation below explains how to write this DSL.
 
 ## Usage
 
-The C# is pretty simple:
+The C# is trivial:
 
 ```
 var spec = [read in a string, explained below...]
