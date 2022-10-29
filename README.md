@@ -128,11 +128,39 @@ Children: [list of ex-boyfriends, because they're were all so damn childish...]
 Pets: "Meredith", "Benjamin", "Olivia"
 ```
 
-Now, we'll apply this specification (this is the actual text of the specification):
+Say we wanted a very simple output -- just a few properties. We could apply this:
+
+```
+first: Name.First
+last: Name.Last
+dob: DateOfBirth
+```
+
+That would give us:
+
+
+```
+first: "Taylor"
+last: "Swift"
+dob: "1989-12-13"
+```
+
+Or, if going straight to JSON:
+
+```json
+{
+  "first": "Taylor",
+  "last": "Swift",
+  "dob": "1989-12-13T00:00:00"
+}
+```
+
+Or, we could get *way* more complicated:
 
 ```
 first_name: Name.First
 last_name: Name.Last
+legal_name: Name.Last | append:"," | append:NameFirst | upcase
 dob: DateOfBirth
 height_in_inches: Height
 weight_in_pounds: Weight
@@ -152,6 +180,7 @@ This results in this Target:
 ```
 first_name: "Taylor"
 last_name: "Swift"
+legal_name: "SWIFT,TAYLOR"
 dob: "1989-12-13"
 height_in_inches: 71
 weight_in_pounds: 135
@@ -173,3 +202,13 @@ idiot_ex_boyfriends:
     summary: "160 pounds of drama"
 
 ```
+
+## A Final Word
+
+Yes, yes, I get it -- why do this when it's easier to just use a programming language?
+
+*Because this is simple, plain text, which can be edited in a UI, stored in a repository, and sandboxed during execution.*
+
+That's it, nothing more. That's the whole reason.
+
+So, don't come at me.
