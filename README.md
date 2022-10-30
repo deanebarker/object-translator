@@ -1,6 +1,6 @@
 # Object Translator
 
-This is a library for converting one C# object into another object using a simple domain-specific language (DSL). It's is designed to be used prior to serlization, so that a new objects can be created that will result in desired serialization.
+This is a library for converting one C# object into another object using a simple domain-specific language (DSL). It's is designed to be used prior to serlization, so that a new objects can be created that will result in the desired serialization.
 
 * **Source:** The object you have
 * **Specification:** A set of instructions that explains how to convert Source into Target
@@ -24,7 +24,11 @@ If you want, you can go straight to JSON with:
 var json = ObjectTranslator.ToJson(spec, sourceObject)
 ```
 
-(Why `ToJson`? Because I might add `ToXml` later. I like XML. Fight me.)
+(Why `ToJson`? Because I might add `ToXml` later.)
+
+(I like XML. Fight me.)
+
+(Oh, you wanna fight? ... I'd add `ToYaml`. ... Yeah. F*** around and find out, punk.)
 
 ## Specification Language
 
