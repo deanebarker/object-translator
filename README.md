@@ -135,6 +135,8 @@ Pets
   length_of_name: _ | size
 ```
 
+(I put that in this section, because the only reason you'd want to do this -- *I think* -- is to use a Fluid expression on the element. If you're not going to use a Fluid expression for some reason, then I think you can only copy it over. I mean, what else would you do with it?)
+
 ## Example
 
 Using our object definition from above, consider this Source (forgive the object notation -- I think you'll get the point):
