@@ -28,7 +28,7 @@ var json = ObjectTranslator.ToJson(spec, sourceObject)
 
 (I like XML. Fight me.)
 
-(Oh, you wanna fight? ... I'd add `ToYaml`. ... Yeah. F*** around and find out, punk.)
+(Oh, you wanna fight? ... then I'll add `ToYaml`. ... Yeah. F*** around and find out, punk.)
 
 ## Specification Language
 
@@ -87,19 +87,31 @@ That will resolve to the `Year` property of the `DateTime` object and produce th
 
 ### Collections
 
-For simple collections of primitives, like `Pets`, we can copy over by simply using the name like other properties.
+For simple collection, like `Pets`, we can copy over by simply using the name like other properties.
 
 ```
 Pets
 ```
 
-But note that `Children` is a list of `Person` objects. Just specifying `Children` would actually do nothing. An `ICollection` of non-primitives isn't anything by itself -- we would need to specify sub-items explaining what we want from each `Person` object in `Children`. If we want a simple list of their names and heights, for example, we can do this:
+If we don't specify any children (see below), which will simply copy over the string representation of whatever the child is (for a lit of strings, which is fine).
+
+But if we have a collection of objects, like `Children`, we can specify sub-items explaining what we want from each `Person` object in `Children`. If we want a simple list of their names and heights, for example, we can do this:
 
 ```
 Children
   Name
   Height
 ```
+
+Each one of the sub-items operates just like a top level item. We can do this:
+
+```
+Children
+  Name
+  Height
+  Year: DateOfBirth.Year
+```
+
 
 ### Fluid Expressions
 
@@ -212,6 +224,15 @@ idiot_ex_boyfriends:
     summary: "160 pounds of drama"
 
 ```
+
+## Limitations
+
+Honestly, the parsing isn't great. It's a mess of procedural code and flags.
+
+* I need to figure out the indent situation. What constitutes an indent? Right now, I'm counting spaces.
+* One absolute limitation: you can't "recede" more than one level at a time. If you're indented to level 3, you can't jump back to level 1. Any reduction in the level of indent, will back you up ONE level only. I need to figure this out.
+
+Also, there's little consideration of typing, and I'm not sure how much this matters. We're just serializing, so do we care about underlying types on Target? I'm not sure.
 
 ## A Final Word
 
