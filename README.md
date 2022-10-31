@@ -28,7 +28,7 @@ var json = ObjectTranslator.ToJson(spec, sourceObject)
 
 (I like XML. Fight me.)
 
-(Oh, you wanna fight? ... then I'll add `ToYaml`. ... Yeah. F*** around and find out, punk.)
+(Oh, you wanna fight? ... then I'll add `ToYaml` ... or `ToSoap` ... Yeah. Try me.)
 
 ## Specification Language
 
@@ -93,9 +93,9 @@ For simple collection, like `Pets`, we can copy over by simply using the name li
 Pets
 ```
 
-If we don't specify any children (see below), which will simply copy over the string representation of whatever the child is (for a lit of strings, which is fine).
+If we don't specify any children (see below), it will simply copy over the string representation of whatever each child is (or a list of strings, in this case, which is fine).
 
-But if we have a collection of objects, like `Children`, we can specify sub-items explaining what we want from each `Person` object in `Children`. If we want a simple list of their names and heights, for example, we can do this:
+But if we have a collection of objects, like `Children`, the string representation doesn't make much sense. So, we can specify sub-items explaining what we want from each `Person` object in `Children`. If we want a simple list of their names and heights, for example, we can do this:
 
 ```
 Children
@@ -112,6 +112,7 @@ Children
   Year: DateOfBirth.Year
 ```
 
+If you want to refer to _the object itself_, for some reason, you can use an underscore: `_`. See the example below.
 
 ### Fluid Expressions
 
