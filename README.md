@@ -8,6 +8,8 @@ This is a library for converting one C# object into another object using a simpl
 
 So the specification is simple DSL that tells C# how to turn Source into Target. Most of the documentation below explains how to write this DSL.
 
+(Note: Object Translator is a "[Little Language](https://chreke.com/little-languages.html)")
+
 ## Usage
 
 The C# is trivial:
